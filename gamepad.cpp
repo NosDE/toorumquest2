@@ -24,9 +24,9 @@
 #include <arduino.h>
 #include "gamepad.h"
 
-const int latch = 12; // set the latch pin
-const int clock = 10; // set the clock pin
-const int datin = 13;// set the data in pin
+const int latch = 12;
+const int clock = 10;
+const int datin = 13;
 
 uint8_t controllerState = 0;
 uint8_t prevControllerState = 0;
@@ -53,7 +53,7 @@ void updateController() {
 
 	controllerState = digitalRead(datin);
 
-	for (int i = 1; i <= 7; i ++) {
+	for(int i = 1; i < 8; i ++) {
 		digitalWrite(clock, HIGH);
 		delayMicroseconds(2);
 		controllerState = controllerState << 1;
